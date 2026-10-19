@@ -82,7 +82,7 @@ app.delete('/usuarios/:id', async (req, res) => {
 // --- PRODUCTOS ---
 app.get('/productos', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM productos');
+        const result = await pool.query('SELECT * FROM productosos');
         res.json(result.rows);
     } catch (error) {
         console.error(error);
@@ -130,7 +130,7 @@ app.put('/productos/:id', async (req, res) => {
 app.delete('/productos/:id', async (req, res) => {
     try {
         const result = await pool.query(
-            'DELETE FROM productos WHERE id = $1 RETURNING *',
+            'DELETE FROM productosos WHERE id = $1 RETURNING *',
             [req.params.id]
         );
         if (result.rowCount === 0) {
