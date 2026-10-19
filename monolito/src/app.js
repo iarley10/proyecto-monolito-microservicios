@@ -3,6 +3,7 @@ const pool = require('./db');
 
 const app = express();
 
+// Middleware para parsear JSON
 app.use(express.json());
 
 app.get('/health', (req, res) => {
@@ -39,8 +40,7 @@ app.get('/pedidos', async (req, res) => {
     }
 });
 
-// --- OPERACIONES POST, PUT, DELETE PARA USUARIOS ---
-
+// Operaciones POST, PUT y DELETE
 app.post('/usuarios', async (req, res) => {
     const { nombre, email } = req.body;
 
